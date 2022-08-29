@@ -1,0 +1,161 @@
+.contacts {
+  background-image: url(../../img/bg/form-block-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 60px 0;
+
+
+  &__title {
+    margin-bottom: 60px;
+    max-width: 800px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__img-box{
+    max-width: 580px;
+    height: 550px;
+    box-shadow: 7px 7px 9px 0 rgba(34, 60, 80, 0.2);
+  }
+  &__img{
+    object-fit: cover;
+    object-position: right;
+    height: 100%;
+  }
+
+  &__content-box {
+    max-width: 580px;
+    width: 100%;
+    font-size: 18px;
+  }
+
+  &__content-text {
+    margin-bottom: 20px;
+  }
+
+  &__content-link {
+    text-decoration: none;
+    color: #000;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}
+
+//.social {
+//  display: flex;
+//  justify-content: space-between;
+//  max-width: 300px;
+//  padding-bottom: 20px;
+//
+//  &__item-link {
+//    transition: all 2s;
+//  }
+//}
+//
+//.facebook {
+//  svg {
+//    width: 50px;
+//    height: 50px;
+//  }
+//
+//  path {
+//    transition: all .3s;
+//  }
+//
+//  &:hover {
+//
+//    path {
+//      fill: #4867aa;
+//    }
+//  }
+//}
+//
+//.instagram {
+//  svg {
+//    width: 48px;
+//    height: 48px;
+//  }
+//
+//  path {
+//    transition: all .3s;
+//  }
+//
+//  &:hover {
+//    path {
+//      fill: #b43077;
+//    }
+//  }
+//}
+//
+//
+//.telegram {
+//  svg {
+//    width: 50px;
+//    height: 50px;
+//  }
+//
+//  path {
+//    transition: all .3s;
+//  }
+//
+//  &:hover {
+//    path {
+//      fill: #239cd6;
+//    }
+//  }
+//}
+//
+//.viber {
+//  svg {
+//    width: 50px;
+//    height: 50px;
+//  }
+//
+//  path {
+//    transition: all .3s;
+//  }
+//
+//  :hover {
+//    path {
+//      fill: #7b519c;
+//    }
+//  }
+//}
+
+.form {
+  &__label {
+    margin-bottom: 20px;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 7px 7px 9px 0 rgba(34, 60, 80, 0.2);
+    border: 2px solid $text;
+  }
+
+  &__input {
+    margin-bottom: 20px;
+  }
+
+  &__textarea {
+    resize: none;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+
+  &__btn {
+    @extend %btn;
+  }
+
+}

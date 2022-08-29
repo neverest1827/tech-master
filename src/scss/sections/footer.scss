@@ -1,0 +1,39 @@
+.footer{
+  background-image: url(./../img/bg/footer-bg.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &__box{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+  &__logo{
+    margin-bottom: 20px;
+  }
+
+  &__btn{
+    font-size: 16px;
+    text-decoration: none;
+    @extend %btn;
+  }
+  &__inner{
+    color: #fff;
+
+  }
+  &__top{
+    padding: 60px 0 20px;
+    border-bottom: 2px solid $bg-red ;
+  }
+  &__text{
+    text-align: center;
+    span{
+      padding: 3px;
+      background-color: $bg-red;
+      color: $bg-dark;
+    }
+  }
+  &__bottom{
+    padding: 10px 0;
+  }
+}

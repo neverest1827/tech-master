@@ -1,0 +1,49 @@
+//Переменные цветов
+$bg-dark: #29282f;
+$bg-red: #E34136;
+$text: #565656;
+
+%merriweather-700 {
+  font-family: Merriweather-Bold, sans-serif;
+  font-weight: 700;
+}
+
+%roboto-700 {
+  font-family: Roboto-Bold, sans-serif;
+  font-weight: 700;
+}
+
+%btn {
+  color: #fff;
+  padding: 20px 40px;
+  background: radial-gradient(circle, rgba(227, 65, 54, 1) 0%, rgba(41, 40, 47, 1) 100%);
+  border: 1px solid #fff;
+  border-radius: 5px;
+  position: relative;
+
+  span {
+    position: relative;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgb(184, 54, 45) 0%, rgba(41, 40, 47, 1) 100%);;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+
+
+
+

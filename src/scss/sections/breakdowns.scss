@@ -1,0 +1,47 @@
+.breakdowns {
+  background-image: url(./../img/bg/breakdowns.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  min-height: 980px;
+  padding: 60px 0;
+
+  &__title {
+    margin-bottom: 60px;
+  }
+  &__items{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  &__item{
+    max-width: 300px;
+    width: 100%;
+    padding: 20px 10px;
+    margin-bottom: 40px;
+  }
+
+  &__item-img{
+    margin: 0 auto 10px;
+  }
+
+  &__item-title{
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    color: $text;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .breakdowns{
+    &__title{
+      margin-bottom: 30px;
+    }
+    &__item{
+      margin-bottom: 0;
+    }
+  }
+}

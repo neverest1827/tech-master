@@ -1,0 +1,44 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.container {
+  max-width: 1230px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  line-height: 120%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .title{
+    font-size: 24px;
+  }
+  .container{
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .title{
+    font-size: 20px;
+  }
+}
