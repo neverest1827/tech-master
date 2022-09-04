@@ -17,12 +17,13 @@
     align-items: center;
   }
 
-  &__img-box{
+  &__img-box {
     max-width: 580px;
     height: 550px;
     box-shadow: 7px 7px 9px 0 rgba(34, 60, 80, 0.2);
   }
-  &__img{
+
+  &__img {
     object-fit: cover;
     object-position: right;
     height: 100%;
@@ -49,90 +50,23 @@
 
 }
 
-//.social {
-//  display: flex;
-//  justify-content: space-between;
-//  max-width: 300px;
-//  padding-bottom: 20px;
-//
-//  &__item-link {
-//    transition: all 2s;
-//  }
-//}
-//
-//.facebook {
-//  svg {
-//    width: 50px;
-//    height: 50px;
-//  }
-//
-//  path {
-//    transition: all .3s;
-//  }
-//
-//  &:hover {
-//
-//    path {
-//      fill: #4867aa;
-//    }
-//  }
-//}
-//
-//.instagram {
-//  svg {
-//    width: 48px;
-//    height: 48px;
-//  }
-//
-//  path {
-//    transition: all .3s;
-//  }
-//
-//  &:hover {
-//    path {
-//      fill: #b43077;
-//    }
-//  }
-//}
-//
-//
-//.telegram {
-//  svg {
-//    width: 50px;
-//    height: 50px;
-//  }
-//
-//  path {
-//    transition: all .3s;
-//  }
-//
-//  &:hover {
-//    path {
-//      fill: #239cd6;
-//    }
-//  }
-//}
-//
-//.viber {
-//  svg {
-//    width: 50px;
-//    height: 50px;
-//  }
-//
-//  path {
-//    transition: all .3s;
-//  }
-//
-//  :hover {
-//    path {
-//      fill: #7b519c;
-//    }
-//  }
-//}
-
 .form {
   &__label {
     margin-bottom: 20px;
+  }
+  &__label-checkbox{
+    display: flex;
+    align-items: center;
+    a{
+      color: #000;
+      text-decoration: none;
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+  &__checkbox{
+    margin-right: 10px;
   }
 
   &__input,
@@ -157,5 +91,49 @@
   &__btn {
     @extend %btn;
   }
-
 }
+
+.success {
+  display: none;
+
+  span {
+    display: inline-block;
+    padding: 10px;
+    background-color: #a1e3a2;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .contacts {
+    &__img {
+      display: none;
+    }
+
+    &__wrapper {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .contacts {
+    &__title {
+      margin-bottom: 20px;
+    }
+
+    &__content-text {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+
+//1200
+//992
+//768
+//480

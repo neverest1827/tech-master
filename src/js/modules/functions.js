@@ -1,3 +1,15 @@
+import axios from "axios";
+
+const TOKEN = "5779219963:AAFhOuBB2jLnNxYrcU-6TUdozYrjBYJoHSs";
+const CHAT_ID = "-1001734485530";
+const URI_IP = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+const success = document.querySelector('.success')
+const checkbox = document.querySelector('.form__label-checkbox')
+// создаем новый объект `Date`
+let today = new Date();
+let now = today.toLocaleString();
+
+
 // Проверка поддержки webp, добавление класса webp или no-webp  для HTML
 export function isWebp() {
     // Проверка поддержки webp
@@ -40,11 +52,36 @@ export function servicesPress(selector) {
 
         document.querySelectorAll('.tabs__list-item').forEach(item => {
             item.addEventListener('click', function () {
-                if( document.querySelector('.tabs__inner--visible')){
+                if (document.querySelector('.tabs__inner--visible')) {
                     document.querySelector('.tabs__inner--visible').classList.remove("tabs__inner--visible");
                 }
             });
         });
+    });
+}
+
+export function fixedPress(selector) {
+    selector.addEventListener('click', function () {
+        document.querySelector('.fixed__inner').classList.toggle("fixed__inner--visible");
+        document.querySelectorAll('a[href^="#"]').forEach(item => {
+            item.addEventListener('click', function () {
+                document.querySelector('.fixed__inner').classList.remove("fixed__inner--visible");
+            })
+        })
+        if (document.querySelector('.social--visible')) {
+            document.querySelector('.social--visible').classList.remove('social--visible')
+        }
+    });
+}
+
+export function socialPress(selector) {
+    selector.addEventListener('click', function () {
+        document.querySelector('.social').classList.toggle("social--visible");
+        document.querySelectorAll('.social__link').forEach(item => {
+            item.addEventListener('click', function () {
+                document.querySelector('.social').classList.remove("social--visible");
+            })
+        })
     });
 }
 
@@ -62,13 +99,18 @@ export function scrolTo() {
                 behavior: 'smooth',
                 block: 'start'
             });
+            if (document.querySelector('.social--visible')) {
+                document.querySelector('.social--visible').classList.remove('social--visible')
+            }
         });
+
     }
+
 }
 
 
 export function fixedHiden() {
-    if (document.body.scrollTop > 900 || document.documentElement.scrollTop > 900) {
+    if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
         document.querySelector(".fixed").style.display = "block";
     } else {
         document.querySelector(".fixed").style.display = "none";
@@ -130,4 +172,121 @@ export function tabs() {
 
         })
     }
+}
+
+export function telValidation(phoneInput) {
+
+    let getInputNumbersValue = function (input) {
+        return input.value.replace(/\D/g, "");
+    }
+
+    let onPhoneInput = function (e) {
+        let input = e.target,
+            inputNumbersValue = getInputNumbersValue(input),
+            formattedInputValue = "",
+            selectionStart = input.selectionStart;
+
+        if (!inputNumbersValue) {
+            return input.value = "";
+        }
+
+        if (input.value.length !== selectionStart) {
+            if (e.data && /\D/g.test(e.data)) {
+                input.value = inputNumbersValue;
+            }
+            return
+        }
+
+        if (["8"].indexOf(inputNumbersValue[0]) > -1) {
+            let firstSymbols = (inputNumbersValue[0] === "8") ? "80" : "";
+            formattedInputValue = firstSymbols + " ";
+            if (inputNumbersValue.length > 2) {
+                formattedInputValue += "(" + inputNumbersValue.substring(2, 4)
+            }
+            if (inputNumbersValue.length >= 5) {
+                formattedInputValue += ") " + inputNumbersValue.substring(4, 7)
+            }
+            if (inputNumbersValue.length >= 8) {
+                formattedInputValue += "-" + inputNumbersValue.substring(7, 9)
+            }
+            if (inputNumbersValue.length >= 10) {
+                formattedInputValue += "-" + inputNumbersValue.substring(9, 11)
+            }
+        } else if (["3"].indexOf(inputNumbersValue[0]) > -1) {
+            let firstSymbols = (inputNumbersValue[0] === "3") ? "+375" : "";
+            formattedInputValue = firstSymbols + " ";
+            if (inputNumbersValue.length > 3) {
+                formattedInputValue += "(" + inputNumbersValue.substring(3, 5)
+            }
+            if (inputNumbersValue.length >= 6) {
+                formattedInputValue += ") " + inputNumbersValue.substring(5, 8)
+            }
+            if (inputNumbersValue.length >= 9) {
+                formattedInputValue += "-" + inputNumbersValue.substring(8, 10)
+            }
+            if (inputNumbersValue.length >= 11) {
+                formattedInputValue += "-" + inputNumbersValue.substring(10, 12)
+            }
+        } else {
+            //else
+            input.value = "";
+        }
+        input.value = formattedInputValue;
+    }
+
+    let onPhoneKeyDown = function (e) {
+        let input = e.target;
+        if (e.keyCode === 8 && getInputNumbersValue(input).length === 1) {
+            input.value = "";
+        }
+    }
+
+    let onPhonePaste = function (e) {
+        let pasted = e.clipboardData || window.clipboardData,
+            input = e.target,
+            inputNumbersValue = getInputNumbersValue(input)
+
+        if (pasted) {
+            let pastedText = pasted.getData("Text");
+            if (/\D/g.test(pastedText)) {
+                input.value = inputNumbersValue;
+            }
+        }
+    }
+
+    phoneInput.addEventListener('input', onPhoneInput);
+    phoneInput.addEventListener('keydown', onPhoneKeyDown);
+    phoneInput.addEventListener('paste', onPhonePaste);
+}
+
+
+export function sendMessage() {
+    document.querySelector('.form').addEventListener('submit', function (e) {
+        e.preventDefault()
+
+        let message = `<b>Заявка с сайта!</b>\n`;
+        message += `<b>создана: ${now}</b>\n`
+        message += `<b>Имя: ${this.name.value}</b>\n`
+        message += `<b>Телефон: ${this.telephone.value}</b>\n`
+        message += `<b>Описание: ${this.description.value}</b>`
+
+        axios.post(URI_IP, {
+            chat_id: CHAT_ID,
+            parse_mode: 'html',
+            text: message
+        })
+            .then((res) => {
+                this.name.value = "";
+                this.telephone.value = "";
+                this.description.value = "";
+                checkbox.style.display = "none"
+                success.style.display = "inline-block"
+            })
+            .catch((err) => {
+                console.warn(err)
+            })
+            .finally(() => {
+                console.log('конец')
+            })
+    })
 }

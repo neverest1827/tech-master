@@ -1,6 +1,6 @@
 //Переменные цветов
 $bg-dark: #29282f;
-$bg-red: #E34136;
+$bg-red: #ff1000;
 $text: #565656;
 
 %merriweather-700 {
@@ -43,6 +43,18 @@ $text: #565656;
   }
 }
 
+
+@media (max-width: 480px) {
+  %btn {
+    text-align: center;
+    padding: 10px 10px;
+    display: inline-block;
+
+     &::before {
+       display: none;
+     }
+  }
+}
 
 
 

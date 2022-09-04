@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  min-height: 1200px;
+  min-height: 1050px;
 
   &__title {
     text-align: center;
@@ -46,6 +46,7 @@
       left: -15px;
       position: relative;
       padding-left: 30px;
+      padding-right: 5px;
       border: 1px solid #fff;
       transition: all .3s;
 
@@ -54,12 +55,9 @@
     span {
       display: inline-block;
       vertical-align: middle;
-      width: 300px;
+      max-width: 300px;
     }
-
-
   }
-
 
   &__box {
     display: none;
@@ -117,6 +115,8 @@
   tr td:last-child {
     font-size: 18px;
     color: $bg-dark;
+    text-align: center;
+    width: 105px;
   }
 }
 
@@ -128,7 +128,7 @@
     &__inner {
       position: absolute;
       z-index: 2;
-      left: -332px;
+      left: -340px;
       transition: all .5s;
     }
 
@@ -160,15 +160,13 @@
       }
     }
 
-    &__list-item {
-
-    }
-
     &__list-item--active {
       left: 0;
       width: 100%;
-    }
+      span{
 
+      }
+    }
 
   }
 }
@@ -179,11 +177,41 @@
     &__box--visible {
       padding-bottom: 15px;
     }
+    &__wrapper{
+      padding-left: 30px;
+    }
+  }
+
+  .table {
+    td + td{
+      width: 105px;
+      text-align: center;
+    }
   }
 }
 
+@media (max-width: 480px) {
+  .tabs{
+    &__inner{
+      width: 320px;
+      left: -320px;
+    }
+    &__box-text{
+      font-size: 16px;
+    }
+    &__box-btn{
+      line-height: 40px;
+    }
+  }
+  .table{
+    font-size: 14px;
+    td + td{
+      width: 80px;
+    }
+  }
+  .table tr td:last-child {
+    font-size: 14px;
+  }
 
-//1200
-//992
-//768
-//480
+}
+

@@ -5,18 +5,13 @@
   background-repeat: no-repeat;
   &__box{
     display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
   }
   &__logo{
     margin-bottom: 20px;
   }
 
-  &__btn{
-    font-size: 16px;
-    text-decoration: none;
-    @extend %btn;
-  }
   &__inner{
     color: #fff;
 
@@ -33,7 +28,23 @@
       color: $bg-dark;
     }
   }
+  &__text-link{
+    color: #fff;
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
   &__bottom{
     padding: 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer{
+    &__text{
+      font-size: 10px;
+      color: #dedede;
+    }
   }
 }
