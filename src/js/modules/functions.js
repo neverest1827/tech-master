@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const TOKEN = "5779219963:AAFhOuBB2jLnNxYrcU-6TUdozYrjBYJoHSs";
+const TOKEN = "";
 const CHAT_ID = "-1001734485530";
 const URI_IP = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 const success = document.querySelector('.success')
