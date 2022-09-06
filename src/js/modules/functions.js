@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const TOKEN = "";
-const CHAT_ID = "-1001734485530";
+const CHAT_ID = "";
 const URI_IP = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 const success = document.querySelector('.success')
 const checkbox = document.querySelector('.form__label-checkbox')
