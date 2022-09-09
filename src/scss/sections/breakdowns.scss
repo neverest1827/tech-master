@@ -9,39 +9,68 @@
   &__title {
     margin-bottom: 60px;
   }
-  &__items{
+
+  &__items {
     display: flex;
     justify-content: center;
     align-items: baseline;
     flex-wrap: wrap;
   }
-  &__item{
+
+  &__item {
     max-width: 300px;
     width: 100%;
     padding: 20px 10px;
     margin-bottom: 40px;
-  }
-
-  &__item-img{
-    margin: 0 auto 10px;
-  }
-
-  &__item-title{
     font-size: 24px;
     letter-spacing: -0.01em;
     color: $text;
     text-align: center;
   }
+
+  &__item-img {
+    margin: 0 auto 10px;
+  }
+
+  &__item-title {
+    margin-bottom: 10px;
+    height: 72px;
+  }
+
+  &__item-price {
+    color: $bg-red;
+    margin-bottom: 10px;
+
+    a {
+      text-decoration: none;
+      color: $bg-red;
+    }
+  }
+
+  &__item-link {
+    text-decoration: none;
+    color: $text;
+
+    &:hover {
+      color: $bg-red;
+    }
+
+  }
 }
 
 
 @media (max-width: 480px) {
-  .breakdowns{
-    &__title{
+  .breakdowns {
+    &__title {
       margin-bottom: 30px;
     }
-    &__item{
+
+    &__item {
       margin-bottom: 0;
+    }
+
+    &__item-title {
+      height: auto;
     }
   }
 }

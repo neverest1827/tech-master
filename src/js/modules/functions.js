@@ -198,10 +198,13 @@ export function telValidation(phoneInput) {
         }
 
         if (["8"].indexOf(inputNumbersValue[0]) > -1) {
-            let firstSymbols = (inputNumbersValue[0] === "8") ? "80" : "";
-            formattedInputValue = firstSymbols + " ";
+            let firstSymbols = (inputNumbersValue[0] === "8") ? "8" : "";
+            formattedInputValue = firstSymbols;
+            if (inputNumbersValue.length > 1) {
+                formattedInputValue += inputNumbersValue.substring(1, 2)
+            }
             if (inputNumbersValue.length > 2) {
-                formattedInputValue += "(" + inputNumbersValue.substring(2, 4)
+                formattedInputValue += " (" + inputNumbersValue.substring(2, 4)
             }
             if (inputNumbersValue.length >= 5) {
                 formattedInputValue += ") " + inputNumbersValue.substring(4, 7)
@@ -213,10 +216,13 @@ export function telValidation(phoneInput) {
                 formattedInputValue += "-" + inputNumbersValue.substring(9, 11)
             }
         } else if (["3"].indexOf(inputNumbersValue[0]) > -1) {
-            let firstSymbols = (inputNumbersValue[0] === "3") ? "+375" : "";
-            formattedInputValue = firstSymbols + " ";
+            let firstSymbols = (inputNumbersValue[0] === "3") ? "+3" : "";
+            formattedInputValue = firstSymbols;
+            if (inputNumbersValue.length > 1) {
+                formattedInputValue += inputNumbersValue.substring(1, 3)
+            }
             if (inputNumbersValue.length > 3) {
-                formattedInputValue += "(" + inputNumbersValue.substring(3, 5)
+                formattedInputValue += " (" + inputNumbersValue.substring(3, 5)
             }
             if (inputNumbersValue.length >= 6) {
                 formattedInputValue += ") " + inputNumbersValue.substring(5, 8)

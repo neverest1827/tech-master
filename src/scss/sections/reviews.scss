@@ -1,0 +1,63 @@
+.reviews {
+  background-image: url(./../img/bg/diff-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  &__title {
+    padding: 40px 0 0;
+    margin-bottom: 20px;
+  }
+
+  &__inner {
+    padding: 40px 0 80px;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  &__item-box {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    border-bottom: 1px solid $bg-dark;
+
+  }
+
+  &__item-name {
+    font-size: 24px;
+    font-weight: 600;
+
+  }
+
+  &__item-content {
+    padding-top: 20px;
+    padding-left: 10px;
+    font-size: 18px;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '"';
+      position: absolute;
+    }
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      padding-left: 3px;
+    }
+  }
+
+}
+
+.swiper {
+  max-width: 680px;
+  background-color: #fff;
+  border-radius: 20px;
+  border: 2px solid $bg-red;
+  padding: 20px 40px 40px;
+
+}

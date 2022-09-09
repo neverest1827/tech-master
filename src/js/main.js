@@ -1,5 +1,4 @@
 import * as functions from "./modules/functions.js";
-
 const width = window.screen.availWidth;
 
 
@@ -24,6 +23,27 @@ window.onload = function () {
     functions.scrolTo();
     functions.tabs()
     functions.sendMessage()
-    functions.telValidation(document.querySelectorAll('input[type=tel]'))
+    functions.telValidation(document.querySelector('input[type=tel]'))
+
+    const swiper = new Swiper('.swiper', {
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        mousewheel: true,
+        keyboard: true,
+        spaceBetween: 50,
+        autoHeight: true,
+    });
 };
 
